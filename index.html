@@ -48,16 +48,17 @@
 
   {{url}}
   {{data.date}}
+  {{data.cities}}
 
 <p><input type="text" ng-model="test"></p>
 
-  <table width="100%">
+  <table width="100%" class="table table-hover text-white">
     <tr>
       <th ng-click="orderByMe('name')">City</th>
-      <th ng-click="orderByMe('confirmed_diff')">New Confirmed Cases</th>
-      <th ng-click="orderByMe('deaths_diff')">New Deaths</th>
-      <th ng-click="orderByMe('confirmed')">Total Confirmed Cases</th>
-      <th ng-click="orderByMe('deaths')">Total Deaths</th>
+      <th ng-click="orderByMe('-confirmed_diff')">New Confirmed Cases</th>
+      <th ng-click="orderByMe('-deaths_diff')">New Deaths</th>
+      <th ng-click="orderByMe('-confirmed')">Total Confirmed Cases</th>
+      <th ng-click="orderByMe('-deaths')">Total Deaths</th>
     </tr>
     <tr ng-repeat="x in cities | orderBy:myOrderBy | filter:test">
       <td>{{x.name}}</td>

@@ -19,7 +19,6 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-
 /*
  * Base structure
  */
@@ -88,6 +87,14 @@ body {
 
 
 
+/*
+*   Table
+*/
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  color: #fff;
+  background-color: #444;
+}
 
 /*
  * Footer

@@ -36,33 +36,25 @@
     
 <div ng-app="allStatsTracker" ng-controller="allStatsCtrl" ng-init="init();">
 
-  <button ng-click="fetch();">Search</button>
+  <button ng-click="fetch();">Load</button>
 
-  <table>
-    <tr ng-repeat="x in data">
-      <td>{{ x.Country }}</td>
-    </tr>
-  </table>
 
-  {{url}}
-  {{results}}
+  <p><input type="text" ng-model="test"></p>
 
-<p><input type="text" ng-model="test"></p>
-
-  <table width="100%">
+  <table width="100%" class="table table-hover text-white">
     <tr>
-      <th ng-click="orderByMe('name')">City</th>
-      <th ng-click="orderByMe('confirmed_diff')">New Confirmed Cases</th>
-      <th ng-click="orderByMe('deaths_diff')">New Deaths</th>
-      <th ng-click="orderByMe('confirmed')">Total Confirmed Cases</th>
-      <th ng-click="orderByMe('deaths')">Total Deaths</th>
+      <th ng-click="orderByMe('Country')">City</th>
+      <th ng-click="orderByMe('-NewConfirmed')">New Confirmed Cases</th>
+      <th ng-click="orderByMe('-NewDeaths')">New Deaths</th>
+      <th ng-click="orderByMe('-TotalConfirmed')">Total Confirmed Cases</th>
+      <th ng-click="orderByMe('-TotalDeaths')">Total Deaths</th>
     </tr>
-    <tr ng-repeat="x in cities | orderBy:myOrderBy | filter:test">
-      <td>{{x.name}}</td>
-      <td>{{x.confirmed_diff}}</td>
-      <td>{{x.deaths_diff}}</td>
-      <td>{{x.confirmed}}</td>
-      <td>{{x.deaths}}</td>
+    <tr ng-repeat="x in countries | orderBy:myOrderBy| filter:test ">
+      <td>{{x.Country}}</td>
+      <td>{{x.NewConfirmed}}</td>
+      <td>{{x.NewDeaths}}</td>
+      <td>{{x.TotalConfirmed}}</td>
+      <td>{{x.TotalDeaths}}</td>
     </tr>
   </table>
 </div>

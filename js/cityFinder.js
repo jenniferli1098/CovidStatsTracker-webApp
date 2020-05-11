@@ -50,11 +50,11 @@ app.controller('searchCtrl', function($scope, $http) {
       			$scope.datafields[5].result = d.fatality_rate;
       			$scope.datafields[6].result = d.region.name;
 
-    			$scope.cities = d.region.cities
+    			$scope.cities = d.region.cities;
       		}
       	});
-
       $scope.results = JSON.parse($scope.data);
+      alert("results"+$scope.results);
       $scope.search = "";
     };
 
