@@ -30,11 +30,12 @@ app.controller('searchCtrl', function($scope, $http) {
 
 
     $scope.fetch = function() {
-
-      $scope.url = "https://covid-api.com/api/reports?date="+getDate()+"&q=" + $scope.search;
+      alert("initialise");
+      $scope.url = "https://covid-api.com/api/reports?date="+getDate()+"&q=ontario" + $scope.search;
       
       $http.get($scope.url)
-      .then(function(response){ $scope.data = response.data.data;
+      .then(function(response){
+        $scope.data = response.data.data;
       		if ($scope.data.length == 0) {
       			return alert("no results");
             $scope.search = "";
@@ -53,6 +54,7 @@ app.controller('searchCtrl', function($scope, $http) {
     			$scope.cities = d.region.cities
       		}
       	});
+      alert("data"+$scope.data);
 
       $scope.results = JSON.parse($scope.data);
       $scope.search = "";

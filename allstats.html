@@ -1,45 +1,25 @@
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Jennifer Liang">
-    <title>Covid-19 Tracker</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello World</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> 
+  <script src="js/allStatsTracker.js"></script>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    
-    <meta name="theme-color" content="#563d7c">
-
-<!--
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  -->
-
-    <!-- Custom styles for this template -->
     <link href="css/custom.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+ </head>
+<body >
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand">Cover</h3>
@@ -53,16 +33,40 @@
 
   <main role="main" class="inner">
     <h1 class="cover-heading">Covid-19 Web Tracker</h1>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <p class="lead">This site lets you find real time stats on the spread of covid-19 in the world. </p>
-    <br>
-    <br>    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-    </p>
+    
+<div ng-app="allStatsTracker" ng-controller="allStatsCtrl" ng-init="init();">
+
+  <button ng-click="fetch();">Search</button>
+
+  <table>
+    <tr ng-repeat="x in data">
+      <td>{{ x.Country }}</td>
+    </tr>
+  </table>
+
+  {{url}}
+  {{results}}
+
+<p><input type="text" ng-model="test"></p>
+
+  <table width="100%">
+    <tr>
+      <th ng-click="orderByMe('name')">City</th>
+      <th ng-click="orderByMe('confirmed_diff')">New Confirmed Cases</th>
+      <th ng-click="orderByMe('deaths_diff')">New Deaths</th>
+      <th ng-click="orderByMe('confirmed')">Total Confirmed Cases</th>
+      <th ng-click="orderByMe('deaths')">Total Deaths</th>
+    </tr>
+    <tr ng-repeat="x in cities | orderBy:myOrderBy | filter:test">
+      <td>{{x.name}}</td>
+      <td>{{x.confirmed_diff}}</td>
+      <td>{{x.deaths_diff}}</td>
+      <td>{{x.confirmed}}</td>
+      <td>{{x.deaths}}</td>
+    </tr>
+  </table>
+</div>
+
   </main>
 
   <footer class="mastfoot mt-auto">
@@ -71,5 +75,10 @@
     </div>
   </footer>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
