@@ -1,0 +1,25 @@
+
+
+<div ng-controller="allStatsCtrl" ng-init="fetch();">
+
+
+
+  <p><input type="text" ng-model="test"></p>
+
+  <table width="100%" class="table table-hover text-white">
+    <tr>
+      <th ng-click="orderByMe('Country'); alert('hi');">City</th>
+      <th ng-click="orderByMe('-NewConfirmed')">New Confirmed Cases</th>
+      <th ng-click="orderByMe('-NewDeaths')">New Deaths</th>
+      <th ng-click="orderByMe('-TotalConfirmed')">Total Confirmed Cases</th>
+      <th ng-click="orderByMe('-TotalDeaths')">Total Deaths</th>
+    </tr>
+    <tr ng-repeat="x in countries | orderBy:myOrderBy| filter:test ">
+      <td>{{x.Country}}</td>
+      <td>{{x.NewConfirmed}}</td>
+      <td>{{x.NewDeaths}}</td>
+      <td>{{x.TotalConfirmed}}</td>
+      <td>{{x.TotalDeaths}}</td>
+    </tr>
+  </table>
+</div>
