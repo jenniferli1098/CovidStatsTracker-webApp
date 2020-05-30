@@ -11,7 +11,7 @@ var getDate = function () {
 
 app.controller('cityCtrl', function($scope, $http) {
     $scope.url = "oops no sd";
-    $scope.search = "pennsylvania";
+    $scope.search = "";
 
     $scope.datafields = [
     	{field: "New Confirmed", result: ""},
@@ -29,6 +29,9 @@ app.controller('cityCtrl', function($scope, $http) {
 
 
     $scope.fetch = function() {
+
+      document.getElementById("details").style.visibility = "visible";
+      document.getElementById("filter").style.visibility = "visible";
 
       $scope.url = "https://covid-api.com/api/reports?date="+getDate()+"&q=" + $scope.search;
       

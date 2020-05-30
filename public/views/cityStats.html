@@ -1,23 +1,26 @@
 
 <div ng-controller="cityCtrl" ng-init="t='hi'">
 
+<br><br>
+<div class="input-group">
+    <input type="text" class="form-control" id="myInput" placeholder="Search ..." ng-model="search">
+    <div class="input-group-append">
+      <button class="btn btn-secondary" ng-click="fetch(); test=''">
+        Search
+      </button>
+    </div>
+  </div>
 
-  <input ng-model="search"><button ng-click="fetch(); test=''">Search</button>
-
-  <table>
+  <table class="col-md-5" id="details" style="visibility:hidden;">
     <tr ng-repeat="x in datafields">
       <td>{{ x.field }}</td>
       <td>{{ x.result }}</td>
     </tr>
   </table>
-  {{t}}
-  {{url}}
-  {{data.date}}
-  {{data.cities}}
 
-  <p><input type="text" ng-model="test"></p>
+  <input class="form-control col-md-3" type="text" ng-model="test" placeholder="filter" id="filter" style="visibility:hidden;">
 
-  <table width="100%" class="table table-hover text-white">
+  <table class="table table-hover text-white ">
     <tr>
       <th ng-click="orderByMe('name')">City</th>
       <th ng-click="orderByMe('-confirmed_diff')">New Confirmed Cases</th>
