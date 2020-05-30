@@ -19,7 +19,6 @@ app.controller('allStatsCtrl', function($scope, $http) {
         $scope.myOrderBy = x;
     }
 
-
     $scope.fetch = function() {
       $scope.test = "";
       //alert("initialized");
@@ -28,9 +27,9 @@ app.controller('allStatsCtrl', function($scope, $http) {
         $scope.data = response.data;
         $scope.countries = $scope.data.Countries;
         $scope.global = $scope.data.Global;
+
       });
       $scope.results = JSON.parse($scope.data);
-
 
 
     };

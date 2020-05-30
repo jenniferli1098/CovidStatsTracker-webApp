@@ -1,29 +1,37 @@
 
-<style>
 
-	#legends{
-	  overflow: scroll;
-	  height: 100px;
-	}
-
-	li { 
-	  list-style-type: "-";
-	  cursor: pointer;
-	  width: auto;
-	  float: left;
-	  margin-left: 25px;
-	  min-width: 100px;
-	}
-</style>
-
+<script src="js/charts-canvas.js"></script>
 <script>window.load();</script>
 
     
 <div id="chartContainer" style="height: 500px; width: 100%;"></div>
 
 
-<!--Custom Legends-->
-<div id="legends">
-    <ul id="legendList">      
-    </ul>
+
+<div class="row">
+	<div class="form-group col-sm-3">
+	    <select class="form-control" id="1" onchange="onChange(this, 1)">
+	    	<option>Choose ...</option>
+	    </select>
+	</div>
+
+
+	<div class="form-group col-sm-3">
+	    <select class="form-control" id="2" onchange="onChange(this, 2)">
+	    	<option>Choose ...</option>
+	    </select>
+	</div>
+
+	<div class="form-group col-sm-3">
+	    <select class="form-control" id="3" onchange="onChange(this, 3)">
+	    	<option>Choose ...</option>
+	    </select>
+	</div>
+
+
+	<div class="form-group col-sm-3">
+	    <select class="form-control" id="4" onchange="onChange(this, 4)">
+	    	<option>Choose ...</option>
+	    </select>
+	</div>
 </div>
