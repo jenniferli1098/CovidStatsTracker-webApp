@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 // set our port
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // configuration ===========================================
 // configure body parser

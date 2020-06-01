@@ -24,6 +24,10 @@
     "tracker",
     "stats"
   ],
+  "engines": {
+    "node": "5.0.0",
+    "npm": "4.6.1"
+  },
   "author": "Jennifer Liang",
   "license": "ISC",
   "bugs": {
