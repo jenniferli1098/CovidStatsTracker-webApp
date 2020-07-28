@@ -4,4 +4,4 @@ Web App to allow users to visualize and search up data on Covid-19 by region. Us
 
 [http://covidstatstracker.herokuapp.com/](http://covidstatstracker.herokuapp.com/)
 
-https://jenniferli1098.github.io/assets/img/portfolio/covidtracker1.jpg
+![graph](https://jenniferli1098.github.io/assets/img/portfolio/covidtracker1.jpg)
